@@ -33,3 +33,6 @@ export const createResource  = (body)     => request("/resources",             {
 export const updateResource  = (id, body) => request(`/resources/${id}`,       { method: "PUT",    body: JSON.stringify(body) });
 export const deleteResource  = (id)       => request(`/resources/${id}`,       { method: "DELETE" });
 export const toggleFavorite  = (id)       => request(`/resources/${id}/favorite`, { method: "PATCH" });
+// Share
+export const toggleShareResource   = (id)       => request(`/share/resource/${id}`,    { method: "POST" });
+export const shareCollection       = (category) => request("/share/collection",         { method: "POST", body: JSON.stringify({ category }) });

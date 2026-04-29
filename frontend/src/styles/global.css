@@ -477,3 +477,26 @@ input, textarea, select { font-family: var(--font-body); }
   color: var(--accent);
   font-weight: 600;
 }
+
+/* ── Share ── */
+.btn-shared {
+  background: rgba(90, 255, 212, 0.12);
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+}
+
+.btn-shared:hover {
+  background: var(--accent2);
+  color: #0e0f11;
+}
+
+.shared-banner {
+  background: rgba(90, 255, 212, 0.08);
+  border: 1px solid var(--accent2);
+  border-radius: 10px;
+  color: var(--accent2);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  text-align: center;
+}

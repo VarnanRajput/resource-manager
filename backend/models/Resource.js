@@ -8,6 +8,10 @@ const resourceSchema = new mongoose.Schema(
     description: { type: String, default: "" },
     category:    { type: String, default: "General" },
     isFavorite:  { type: Boolean, default: false },
+
+    // Sharing fields
+    isPublic:   { type: Boolean, default: false },
+    shareId:    { type: String, default: null, unique: true, sparse: true },
   },
   { timestamps: true }
 );

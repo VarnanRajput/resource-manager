@@ -6,6 +6,8 @@ import Resources from "./pages/Resources";
 import AddEditResource from "./pages/AddEditResource";
 import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
+import SharedResource   from "./pages/SharedResource";
+import SharedCollection from "./pages/SharedCollection";
 
 // Simple auth check — reads token from localStorage
 const isLoggedIn = () => !!localStorage.getItem("token");
@@ -30,6 +32,9 @@ function App() {
         <Route path="/resources/new" element={<PrivateRoute><AddEditResource /></PrivateRoute>} />
         <Route path="/resources/edit/:id" element={<PrivateRoute><AddEditResource /></PrivateRoute>} />
         <Route path="/favorites" element={<PrivateRoute><Favorites /></PrivateRoute>} />
+
+        <Route path="/share/resource/:shareId" element={<SharedResource />} />
+        <Route path="/share/collection/:token" element={<SharedCollection />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" />} />

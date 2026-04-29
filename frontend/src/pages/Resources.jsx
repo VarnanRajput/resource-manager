@@ -2,6 +2,18 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getResources } from "../api";
 import ResourceCard from "../components/ResourceCard";
+import { getResources, shareCollection } from "../api";
+
+const handleShareCollection = async (category) => {
+  try {
+    const data = await shareCollection(category);
+    const link = `${window.location.origin}/share/collection/${data.collectionToken}`;
+    await navigator.clipboard.writeText(link);
+    alert(`✅ Collection link copied! (${data.count} resources shared)`);
+  } catch (err) {
+    alert(err.message);
+  }
+};
 
 function Resources() {
   const [resources, setResources] = useState([]);
@@ -68,6 +80,14 @@ function Resources() {
       ) : (
         <>
           <p className="section-title">{filtered.length} resource{filtered.length !== 1 ? "s" : ""}</p>
+          {category !== "All" && (
+  <button
+    className="btn btn-ghost btn-sm"
+    onClick={() => handleShareCollection(category)}
+  >
+    🔗 Share "{category}" collection
+  </button>
+)}
           <div className="resource-grid">
             {filtered.map((r) => (
               <ResourceCard

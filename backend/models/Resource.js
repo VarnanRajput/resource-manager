@@ -11,7 +11,7 @@ const resourceSchema = new mongoose.Schema(
 
     // Sharing fields
     isPublic:   { type: Boolean, default: false },
-    shareId:    { type: String, default: null, unique: true, sparse: true },
+    shareId: { type: String, default: undefined },
   },
   { timestamps: true }
 );

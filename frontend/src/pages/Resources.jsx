@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import ResourceCard from "../components/ResourceCard";
 import { getResources, shareCollection } from "../api";
 
-// Toggle share for entire collection
+function Resources() {
+  const [resources, setResources] = useState([]);
+  const [loading, setLoading]     = useState(true);
+  const [search, setSearch]       = useState("");
+  const [category, setCategory]   = useState("All");
+
+  // Toggle share for entire collection
 const handleShareCollection = async (category) => {
   try {
     const data = await shareCollection(category);
@@ -23,12 +29,6 @@ const handleShareCollection = async (category) => {
     alert(err.message);
   }
 };
-
-function Resources() {
-  const [resources, setResources] = useState([]);
-  const [loading, setLoading]     = useState(true);
-  const [search, setSearch]       = useState("");
-  const [category, setCategory]   = useState("All");
 
   useEffect(() => {
     getResources()

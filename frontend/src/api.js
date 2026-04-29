@@ -1,7 +1,7 @@
 // Central place for all API calls
 // Reads token from localStorage and attaches it to every request
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://resource-manager-w9u9.onrender.com";
 
 // Build headers — include JWT if available
 const getHeaders = () => {

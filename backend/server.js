@@ -12,7 +12,8 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://resource-manager-o1na.vercel.app" 
+    "https://resource-manager-o1na.vercel.app",
+    "https://resource-manager-aesk.vercel.app"
   ],
   credentials: true
 }));

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getResources } from "../api";
 import ResourceCard from "../components/ResourceCard";
 import { getResources, shareCollection } from "../api";
 

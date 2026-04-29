@@ -12,7 +12,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://resource-manager-w9u9.onrender.com"  // ← paste your actual Vercel URL here
+    "https://resource-manager-o1na.vercel.app"  // ← paste your actual Vercel URL here
   ],
   credentials: true
 }));

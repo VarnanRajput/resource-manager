@@ -3,12 +3,22 @@ import { Link } from "react-router-dom";
 import ResourceCard from "../components/ResourceCard";
 import { getResources, shareCollection } from "../api";
 
+// Toggle share for entire collection
 const handleShareCollection = async (category) => {
   try {
     const data = await shareCollection(category);
-    const link = `${window.location.origin}/share/collection/${data.collectionToken}`;
-    await navigator.clipboard.writeText(link);
-    alert(`✅ Collection link copied! (${data.count} resources shared)`);
+
+    if (data.isPublic) {
+      const link = `${window.location.origin}/share/collection/${data.collectionToken}`;
+      await navigator.clipboard.writeText(link);
+      alert(`✅ Collection shared! Link copied (${data.count} resources)`);
+    } else {
+      alert(`🔒 "${category}" collection is now private.`);
+    }
+
+    // Refresh resources to reflect new isPublic states on cards
+    const updated = await getResources();
+    setResources(updated);
   } catch (err) {
     alert(err.message);
   }
@@ -84,7 +94,9 @@ function Resources() {
     className="btn btn-ghost btn-sm"
     onClick={() => handleShareCollection(category)}
   >
-    🔗 Share "{category}" collection
+    {resources.filter(r => r.category === category).every(r => r.isPublic)
+      ? "🔒 Make Private"
+      : "🔗 Share Collection"}
   </button>
 )}
           <div className="resource-grid">

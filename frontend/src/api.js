@@ -36,3 +36,5 @@ export const toggleFavorite  = (id)       => request(`/resources/${id}/favorite`
 // Share
 export const toggleShareResource   = (id)       => request(`/share/resource/${id}`,    { method: "POST" });
 export const shareCollection       = (category) => request("/share/collection",         { method: "POST", body: JSON.stringify({ category }) });
+export const getCollectionShareStatus = (category) =>
+  request(`/resources?category=${encodeURIComponent(category)}`);

@@ -22,7 +22,10 @@ app.use(express.json());
 // Routes
 app.use("/auth", authRoutes);
 app.use("/resources", resourceRoutes);
-app.use("/share", shareRoutes);                
+app.use("/share", shareRoutes);   
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});             
 
 // Health check
 app.get("/", (req, res) => res.json({ message: "Resource Manager API running" }));

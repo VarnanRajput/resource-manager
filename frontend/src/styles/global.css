@@ -1,13 +1,13 @@
 /* ── CSS Variables ── */
 :root {
-  --bg:        #cae3ff;
+  --bg:        #0e0f11;
   --surface:   #16181c;
   --surface2:  #1e2026;
   --border:    #2a2d35;
   --accent:    #e8ff5a;
   --accent2:   #5affd4;
   --danger:    #ff5a5a;
-  --text:      #060000;
+  --text:      #f0f0f0;
   --muted:     #7a7f8e;
   --radius:    10px;
   --font-head: "Syne", sans-serif;

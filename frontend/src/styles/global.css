@@ -204,7 +204,7 @@ input, textarea, select { font-family: var(--font-body); }
 .navbar-logo {
   font-family: var(--font-head);
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent);
   letter-spacing: -0.5px;
 }

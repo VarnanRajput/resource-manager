@@ -1,24 +1,25 @@
 import { useState } from "react";
 
-const CATEGORIES = ["General", "Tutorial", "Tool", "Article", "Video", "Reference", "Other"];
+const SUGGESTED = ["General", "Tutorial", "Tool", "Article", "Video", "Reference", "Research", "Course", "Book", "Other"];
 
-// Reusable form for both Add and Edit
 function ResourceForm({ initial = {}, onSubmit, loading }) {
   const [form, setForm] = useState({
     title:       initial.title       || "",
     link:        initial.link        || "",
     description: initial.description || "",
-    category:    initial.category    || "General",
+    category:    initial.category    || "",
   });
 
-  // Update form field by name
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
+
+  // Click a chip → set as category (toggle off if already selected)
+  const handleChip = (cat) =>
+    setForm({ ...form, category: form.category === cat ? "" : cat });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(form); // pass form data up to parent
+    onSubmit({ ...form, category: form.category || "General" });
   };
 
   return (
@@ -56,13 +57,28 @@ function ResourceForm({ initial = {}, onSubmit, loading }) {
         />
       </div>
 
+      {/* Category — type custom or pick from suggestions */}
       <div className="form-group">
         <label>Category</label>
-        <select name="category" value={form.category} onChange={handleChange}>
-          {CATEGORIES.map((c) => (
-            <option key={c} value={c}>{c}</option>
+        <input
+          name="category"
+          value={form.category}
+          onChange={handleChange}
+          placeholder="Type a category or pick one below…"
+        />
+        {/* Quick-select suggestion chips */}
+        <div className="chip-group">
+          {SUGGESTED.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              className={`chip ${form.category === cat ? "chip-active" : ""}`}
+              onClick={() => handleChip(cat)}
+            >
+              {cat}
+            </button>
           ))}
-        </select>
+        </div>
       </div>
 
       <button className="btn btn-primary" type="submit" disabled={loading}>

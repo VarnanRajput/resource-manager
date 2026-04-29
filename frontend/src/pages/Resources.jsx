@@ -28,7 +28,8 @@ function Resources() {
   // Filter by search text and category
   const filtered = resources.filter((r) => {
     const matchSearch = r.title.toLowerCase().includes(search.toLowerCase()) ||
-                        r.description.toLowerCase().includes(search.toLowerCase());
+                    r.description.toLowerCase().includes(search.toLowerCase()) ||
+                    r.category.toLowerCase().includes(search.toLowerCase());
     const matchCat    = category === "All" || r.category === category;
     return matchSearch && matchCat;
   });

@@ -34,6 +34,7 @@ function App() {
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      {console.log("VERSION CHECK 2.0")}
     </>
   );
 }

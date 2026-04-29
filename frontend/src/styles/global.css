@@ -202,7 +202,7 @@ input, textarea, select { font-family: var(--font-body); }
 }
 
 .navbar-logo {
-  font-family: var(--font-head);
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--accent);

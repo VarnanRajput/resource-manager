@@ -1,109 +1,125 @@
-# 📚 Resource Manager
+🚀 Resource Manager Web App -
 
-A full-stack web app to store, manage, and organize useful resources (links, notes, references).
+A full-stack MERN-based web application that helps users efficiently store, organize, and share useful digital resources such as links, tools, and learning materials.
 
-## Tech Stack
-- **Frontend**: React + Vite + React Router
-- **Backend**: Node.js + Express
-- **Database**: MongoDB (local Community Server)
-- **Auth**: JWT
+📌 Overview-
+The Resource Manager is designed to solve the problem of scattered bookmarks and unorganized resources. It provides a centralized platform where users can securely manage their resources, mark favorites, and share them with others using unique links.
 
----
+✨ Features-
 
-## 🚀 How to Run (3 steps)
+🔐 User Authentication
+Signup & Login system
+Token-based authentication
+Protected routes
 
-### Step 1 — Make sure MongoDB is running
+📁 Resource Management
+Add, edit, delete resources
+View all resources in dashboard
 
-MongoDB Community Server must be installed and running locally.
+⭐ Favorites System
+Mark/unmark important resources
+Separate favorites section
 
-**Windows:**
-```
-net start MongoDB
-```
-Or open **Services** → find **MongoDB** → Start
+🔗 Sharing Functionality
+Share individual resources
+Share entire collections
+Public access via unique links
 
-**Mac (Homebrew):**
-```bash
-brew services start mongodb-community
-```
+🔍 Clean UI & Navigation
+Responsive React interface
+Easy-to-use dashboard
 
-**Linux (Ubuntu/Debian):**
-```bash
-sudo systemctl start mongod
-```
+🛠️ Tech Stack
+Frontend-
+React.js
+React Router
+JavaScript (ES6+)
+CSS
 
-> MongoDB runs on `mongodb://127.0.0.1:27017` by default. No setup needed — the app creates the `resourcemanager` database automatically.
+Backend-
+Node.js
+Express.js
 
----
+Database-
+MongoDB
+Mongoose
 
-### Step 2 — Install all dependencies (one time only)
+Other Tools-
+REST APIs
+CORS
+Environment Variables
+Vercel, Render, MongoDB Atlas (Deployment)
 
-Open a terminal in the `resource-manager` folder and run:
+⚙️ Installation & Setup-
+1️⃣ Clone the Repository
+git clone https://github.com/VarnanRajput/resource-manager.git
+cd resource-manager
 
-```bash
-npm run install:all
-```
+2️⃣ Setup Backend
+cd backend
+npm install
 
-This installs dependencies for both frontend and backend.
+Create a .env file in backend folder:
 
----
+PORT=5000
+MONGO_URI=mongodb+srv://rajputvarnan22_db_user:TA7L05LlOkxdbaPN@cluster0.gaf7q0w.mongodb.net/?appName=Cluster0
+JWT_SECRET=varnanlovesvarnan
 
-### Step 3 — Start the app
+Run backend:
 
-```bash
+npm start
+
+3️⃣ Setup Frontend
+cd frontend
+npm install
 npm run dev
-```
 
-This single command starts **both** servers at once:
-- 🟢 Backend  → http://localhost:5000
-- 🟢 Frontend → http://localhost:5173
+🌐 Usage Flow
+Sign up or log in
+Add resources (name, description, link)
+View and manage resources in dashboard
+Mark important ones as favorites
+Share resources or collections via link
+Access shared content without login
 
-Open your browser at **http://localhost:5173** and you're good to go!
+📡 API Endpoints
+/auth → User authentication
+/resources → CRUD operations
+/share → Share resources/collections
+/health → Server check
 
----
-
-## 📁 Folder Structure
-
-```
+📂 Project Structure
 resource-manager/
-├── package.json          ← root scripts (run both servers)
+│
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   └── App.jsx
 │
 ├── backend/
-│   ├── server.js         ← Express entry point
-│   ├── .env              ← config (port, DB URL, JWT secret)
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Resource.js
 │   ├── routes/
-│   │   ├── auth.js       ← /auth/login, /auth/signup
-│   │   └── resources.js  ← CRUD + favorite toggle
-│   └── middleware/
-│       └── authMiddleware.js
+│   ├── models/
+│   └── server.js
 │
-└── frontend/
-    └── src/
-        ├── api.js            ← all fetch calls in one place
-        ├── App.jsx           ← routes
-        ├── components/
-        │   ├── Navbar.jsx
-        │   ├── ResourceCard.jsx
-        │   └── ResourceForm.jsx
-        ├── pages/
-        │   ├── Login.jsx
-        │   ├── Signup.jsx
-        │   ├── Dashboard.jsx
-        │   ├── Resources.jsx
-        │   ├── AddEditResource.jsx
-        │   └── Favorites.jsx
-        └── styles/
-            └── global.css
-```
+└── README.md
 
----
+🚀 Future Improvements-
+User profiles
+AI-based recommendations
 
-## 🔑 Features
+🤝 Contributing
 
-- **Auth**: Sign up / log in / log out with JWT
-- **Dashboard**: Stats overview + recent resources
-- **Resources**: Add, edit, delete, search, filter by category
-- **Favorites**: Star any resource, view them on a dedicated page
+Contributions are welcome!
+Feel free to fork this repo and submit a pull request.
+
+📎 GitHub Link
+
+https://github.com/VarnanRajput/resource-manager
+
+📜 License
+
+This project is open-source and available under the MIT License.
+
+💡 Author
+
+Developed by - Varnan Rajput
